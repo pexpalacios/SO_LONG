@@ -1,6 +1,18 @@
-#include "../so_long.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: penpalac <penpalac@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/25 16:16:21 by penpalac          #+#    #+#             */
+/*   Updated: 2025/09/25 16:49:51 by penpalac         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int	check_ber(char *map)
+#include "../includes/so_long.h"
+
+int	check_ext(char *map)
 {
 	char	*name_end;
 	char	*ext;
@@ -18,30 +30,15 @@ int	check_ber(char *map)
 
 int	main(int ac, char **av)
 {
-	t_game	*game;
-
 	//argument check
 	if (ac != 2)
 		perror("Invalid number of arguments");
 	//check if it's .ber
-	if (check_ext())
+	if (check_ext(av[1]))
 		perror("File extension must be .ber");
-
-	game = ft_calloc(sizeof(t_game), 1);
-	if (!game)
-		return (free(game), 0);
-	//parse map
-	//check_map(av[1]);
-	//initiate game
-	game->mlx = mlx_init();
-	if (!game->mlx)
-		perror("Couldn't load mlx");
-	game->window_x = game->map.lenline * TILE_SIZE;
-	game->window_y = game->map.lencol * TILE_SIZE;
-	game->window = mlx_new_window(game->mlx, game->window_x,
-		game->window_y, "So_long");
-	get_xmp_image(game);
-	start_game(game);
+	if (!parse_map(av[1]))
+		return (1);
+	init_game(av[1]);
 	return (0);
 }
 

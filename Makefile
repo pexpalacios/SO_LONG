@@ -8,11 +8,11 @@ SRC = src/main.c src/check_map.c src/make_map.c src/movement.c \
 OBJ_DIR = obj
 OBJ = $(SRC:src/%.c=$(OBJ_DIR)/%.o)
 
-LIBFT_PATH = ./libft
+LIBFT_PATH = includes/libft
 LIBFT = $(LIBFT_PATH)/libft.a
 LIBINCL	= -L libft/ -laux
 
-MLX_PATH = ./mlx
+MLX_PATH = includes/mlx
 MLX = $(MLX_PATH)/libmlx_Linux.a
 MLXFLAGS = -L mlx/ -lmlx -lXext -lX11
 

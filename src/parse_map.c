@@ -1,10 +1,24 @@
-//#include "../so_long.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_map.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: penpalac <penpalac@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/25 16:14:59 by penpalac          #+#    #+#             */
+/*   Updated: 2025/09/25 16:25:58 by penpalac         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/so_long.h"
 
 // in map[i][j]: i is the number or rows(height) and j the number of columns(length)
 
 //Master function that calls the different checks
-int parse_map(char **map)
+int parse_map(char *arg)
 {
+	char **map = ft_split(arg, '\n');
+
 	if (!map_is_valid(map))
 		return (0);
 	if (!has_correct_characters(map))
@@ -90,7 +104,7 @@ int has_correct_characters(char **map)
 	return (1);
 }
 
-//Checks the number of special characters so there's no more than one P and E
+// Checks the number of special characters so there's no more than one P and E
 // and that there's at least one C
 int right_nb_of_characters(char **map)
 {
@@ -117,22 +131,17 @@ int right_nb_of_characters(char **map)
 		}
 		i++;
 	}
-	// if ((nb_p > 1 || nb_p <= 0) || (nb_e > 1 || nb_e <= 0) || nb_c <= 0)
-	// {
-	// 	perror("Map characters' number is invaid");
-	// 	return (0);
-	// }
 	if (nb_p > 1 || nb_p <= 0)
 	{
 		perror("Number of character P invalid: must be 1");
 		return (0);
 	}
-		if (nb_e > 1 || nb_e <= 0)
+	if (nb_e > 1 || nb_e <= 0)
 	{
 		perror("Number of character E invalid: must be 1");
 		return (0);
 	}
-		if (nb_c <= 0)
+	if (nb_c <= 0)
 	{
 		perror("Number of character C invalid: must be at least 1");
 		return (0);
@@ -141,3 +150,8 @@ int right_nb_of_characters(char **map)
 }
 
 //pathfinder
+int available_path(char **map)
+{
+	
+	return (1);
+}
