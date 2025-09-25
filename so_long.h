@@ -6,16 +6,16 @@
 /*   By: penpalac <penpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 10:01:44 by penpalac          #+#    #+#             */
-/*   Updated: 2025/09/25 16:02:39 by penpalac         ###   ########.fr       */
+/*   Updated: 2025/09/25 16:04:23 by penpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../libft/libft.h"
-# include "../mlx/mlx.h"
-# include "../mlx/mlx_int.h"
+# include "libft/libft.h"
+# include "mlx/mlx.h"
+# include "mlx/mlx_int.h"
 # include <errno.h>
 # include <fcntl.h>
 # include <stdlib.h>
