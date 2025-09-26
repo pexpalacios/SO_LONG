@@ -17,7 +17,7 @@ MLX = $(MLX_PATH)/libmlx_Linux.a
 MLXFLAGS = -L mlx/ -lmlx -lXext -lX11
 
 RESET	= \033[0m
-RED		= \033[1;31m
+YELLOW	= \033[1;33m
 GREEN	= \033[1;32m
 BLUE	= \033[1;34m
 
@@ -46,12 +46,12 @@ $(OBJ_DIR)/%.o: src/%.c
 clean:
 	@$(MAKE) -C $(LIBFT_PATH) clean
 	@rm -rf $(OBJ_DIR)
-	@echo "$(RED)[Objects removed]$(RESET)"
+	@echo "$(YELLOW)[Objects removed]$(RESET)"
 
 fclean:clean
 	@$(MAKE) -C $(LIBFT_PATH) fclean
 	@rm -rf $(NAME)
-	@echo "$(RED)[Project removed]$(RESET)"
+	@echo "$(YELLOW)[Project removed]$(RESET)"
 
 re:fclean all
 

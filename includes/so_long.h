@@ -6,7 +6,7 @@
 /*   By: penpalac <penpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 10:01:44 by penpalac          #+#    #+#             */
-/*   Updated: 2025/09/25 17:27:05 by penpalac         ###   ########.fr       */
+/*   Updated: 2025/09/26 17:28:52 by penpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,10 @@
 # define K_D 100
 # define K_S 115
 # define K_W 119
+# define A_UP 65362
+# define A_DW 65364
+# define A_LF 65361
+# define A_RG 65363
 
 // COLORS //
 #define	WHITE	"\033[0m"
@@ -59,8 +63,23 @@ typedef struct s_game
 	t_img	*player;
 	t_img	*item;
 	t_img	*exit;
+
+	int	steps;
+	int	items;
+	
+	int key_w;
+	int key_a;
+	int key_s;
+	int key_d;
 	
 }	t_game;
+
+typedef struct s_player
+{
+	int posx;
+	int posy;
+
+}	t_player;
 
 // MAIN
 int	check_ext(char *map);
@@ -75,9 +94,12 @@ int	available_path(char **map);
 // INIT_GAME
 void	init_game(char *arg);
 void	load_images(t_game *game);
-
+void	draw_map(t_game *game, int length, int height);
+void	start_game_loop(t_game *game);
 // GAME_LOOP
-
+void	key_press(t_game *game, int key, t_player *player);
+void	key_release(t_game *game, int key,  t_player *player);
+void	move_player(t_game *game, t_player *player);
 
 // CLEANERS
 void	img_cleaner(t_game *game);

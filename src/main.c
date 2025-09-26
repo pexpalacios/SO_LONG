@@ -6,7 +6,7 @@
 /*   By: penpalac <penpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 16:16:21 by penpalac          #+#    #+#             */
-/*   Updated: 2025/09/25 16:49:51 by penpalac         ###   ########.fr       */
+/*   Updated: 2025/09/26 15:56:20 by penpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,4 @@ int	main(int ac, char **av)
 		return (1);
 	init_game(av[1]);
 	return (0);
-}
-
-void	start_game(t_game *game)
-{
-	draw_map(game);
-	game->player.cont_moves = 0;
-	game->player.items = 0;
-	mlx_key_hook(game->window, key_input, game);
-	mlx_hook(game->window, ClientMessage, LeaveWindowMask, close_game, game);
-	mlx_loop(game->mlx);
 }
