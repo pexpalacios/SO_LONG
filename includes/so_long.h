@@ -6,7 +6,7 @@
 /*   By: penpalac <penpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 10:01:44 by penpalac          #+#    #+#             */
-/*   Updated: 2025/09/26 17:28:52 by penpalac         ###   ########.fr       */
+/*   Updated: 2025/09/30 18:41:23 by penpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ typedef struct s_game
 
 	int	steps;
 	int	items;
+	int total_items;
 	
 	int key_w;
 	int key_a;

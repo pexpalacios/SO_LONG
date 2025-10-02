@@ -6,7 +6,7 @@
 /*   By: penpalac <penpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 16:16:38 by penpalac          #+#    #+#             */
-/*   Updated: 2025/09/26 17:29:08 by penpalac         ###   ########.fr       */
+/*   Updated: 2025/09/30 18:42:03 by penpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,25 @@ void	move_player(t_game *game, t_player *player)
 	int	next_tile;
 
 	// set next tile depending on direction
+	if (game->key_a)
+		next_tile = game->map[player->posx][player->posy - 1];
+	else if (game->key_d)
+		next_tile = game->map[player->posx][player->posy + 1];
+	else if (game->key_w)
+		next_tile = game->map[player->posx - 1][player->posy];
+	else if (game->key_s)
+		next_tile = game->map[player->posx + 1][player->posy];
 	if (next_tile != '1')
 	{
-		//count steps++
+		game->steps++;
 		if (next_tile == 'C' || next_tile == 'P' || next_tile == '0')
 		{
+			if (next_tile == 'C')
+			{
+				game->items++;
+				if (game->items == game->total_items)
+					open_exit(game);
+			}
 			// change player's position to floor and next tile to player
 			mlx_put_image_to_window(game->mlx, game->window, game->player->image,
 				player->posx * TILE_SIZE, (player->posy - 1) * TILE_SIZE);

@@ -6,7 +6,7 @@
 /*   By: penpalac <penpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 16:16:27 by penpalac          #+#    #+#             */
-/*   Updated: 2025/09/26 16:47:24 by penpalac         ###   ########.fr       */
+/*   Updated: 2025/09/30 18:42:38 by penpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,10 @@ void	draw_map(t_game *game, t_player *player, int length, int height)
 				player->posy = i;
 			}
 			else if (game->map[i][j] == 'C')
+			{
 				mlx_put_image_to_window(game->mlx, game->window, game->item->image, i * TILE_SIZE, j * TILE_SIZE);
+				game->total_items++;
+			}
 			else if (game->map[i][j] == 'E')
 				mlx_put_image_to_window(game->mlx, game->window, game->exit->image, i * TILE_SIZE, j * TILE_SIZE);
 			j++;

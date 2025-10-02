@@ -6,7 +6,7 @@
 /*   By: penpalac <penpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 17:01:59 by penpalac          #+#    #+#             */
-/*   Updated: 2025/09/25 17:21:39 by penpalac         ###   ########.fr       */
+/*   Updated: 2025/09/30 18:44:37 by penpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,15 @@ void	load_images(t_game *game)
 
 int	open_exit(t_game *game)
 {
-	game->exit.addr = mlx_get_data_addr(game->exit.img, &game->exit.bits,
-			&game->exit.size_line, &game->exit.endian);
-	mlx_destroy_image(game->mlx, game->exit.img);
-	game->exit.img = mlx_xpm_file_to_image(game->mlx,
-			"textures/E_exit_open.xpm", &game->exit.bits,
-			&game->exit.size_line);
-	mlx_put_image_to_window(game->mlx, game->window, game->exit.img,
-		game->exit.tile_x * TILE_SIZE, game->exit.tile_y * TILE_SIZE);
+	game->exit->image = mlx_xpm_file_to_image(game->mlx, "../textures/E_exit_opened.xpm", 
+		&game->exit->bpp, &game->exit->size_line);
+	game->exit->data = mlx_get_data_addr(&game->exit->image, &game->exit->bpp, 
+		&game->exit->size_line, &game->exit->image->byte_order);
+
+	int i = 0;
+	while ()
+	mlx_put_image_to_window(game->mlx, game->window, game->exit->image,
+		game->exit. * TILE_SIZE, game->exit.tile_y * TILE_SIZE);
 	ft_printf("Se ha abierto la salida!\n");
 	return (1);
 }
